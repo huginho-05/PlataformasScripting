@@ -6,13 +6,16 @@ public class playerMovement : MonoBehaviour
     
     [SerializeField] private float playerSpeed;
     [SerializeField] private float jumpForce;
+    
     [SerializeField] private Animator playerMovementAnimator;
+    private SpriteRenderer spriteRenderer;
     
     private bool isGrounded;
     
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -37,6 +40,15 @@ public class playerMovement : MonoBehaviour
         else
         {
             playerMovementAnimator.SetBool("isRunning", false);
+        }
+        
+        if (hInput > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if (hInput < 0)
+        {
+            spriteRenderer.flipX = true;
         }
 
     }
