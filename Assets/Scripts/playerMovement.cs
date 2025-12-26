@@ -6,6 +6,7 @@ public class playerMovement : MonoBehaviour
     
     [SerializeField] private float playerSpeed;
     [SerializeField] private float jumpForce;
+    [SerializeField] private Animator playerMovementAnimator;
     
     private bool isGrounded;
     
@@ -27,13 +28,20 @@ public class playerMovement : MonoBehaviour
     {
         float hInput = Input.GetAxisRaw("Horizontal"); 
         
-        Vector2 movementDirection  = new Vector2 (hInput, 0).normalized;
-        
-        transform.Translate(movementDirection * (playerSpeed * Time.deltaTime), Space.World);
+        rb.linearVelocity = new Vector2(hInput * playerSpeed, rb.linearVelocity.y);
+
+        if (hInput != 0)
+        {
+            playerMovementAnimator.SetBool("isRunning", true);
+        }
+        else
+        {
+            playerMovementAnimator.SetBool("isRunning", false);
+        }
 
     }
     
-    private void OnCollisionStay(Collision other)
+    private void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Floor"))
         {
@@ -41,7 +49,7 @@ public class playerMovement : MonoBehaviour
         }
     }
     
-    private void OnCollisionExit(Collision other)
+    private void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Floor"))
         {
