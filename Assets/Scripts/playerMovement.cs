@@ -33,6 +33,7 @@ public class playerMovement : MonoBehaviour
         
         rb.linearVelocity = new Vector2(hInput * playerSpeed, rb.linearVelocity.y);
 
+        //Cambiar animaciones
         if (hInput != 0)
         {
             playerMovementAnimator.SetBool("isRunning", true);
@@ -42,6 +43,7 @@ public class playerMovement : MonoBehaviour
             playerMovementAnimator.SetBool("isRunning", false);
         }
         
+        //Cambiar la dirección del sprite
         if (hInput > 0)
         {
             spriteRenderer.flipX = false;
