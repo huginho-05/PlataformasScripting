@@ -692,6 +692,7 @@ GameObject:
   - component: {fileID: 2037155611}
   - component: {fileID: 2037155612}
   - component: {fileID: 2037155613}
+  - component: {fileID: 2037155615}
   - component: {fileID: 2037155614}
   m_Layer: 0
   m_Name: Player
@@ -709,7 +710,7 @@ Transform:
   m_GameObject: {fileID: 2037155608}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.85, y: 4.04, z: 0}
+  m_LocalPosition: {x: 3, y: -3.2, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -852,6 +853,7 @@ MonoBehaviour:
   playerSpeed: 5
   jumpForce: 15
   playerMovementAnimator: {fileID: 2037155614}
+  isGrounded: 0
 --- !u!95 &2037155614
 Animator:
   serializedVersion: 7
@@ -874,6 +876,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2037155615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037155608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7ac7ce16763a66478f90f542cf1568e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  damageSword: 0
+  playerAttackAnimator: {fileID: 2037155614}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

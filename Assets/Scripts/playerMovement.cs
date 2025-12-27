@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class playerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
     
@@ -10,7 +10,7 @@ public class playerMovement : MonoBehaviour
     [SerializeField] private Animator playerMovementAnimator;
     private SpriteRenderer spriteRenderer;
     
-    private bool isGrounded;
+    public bool isGrounded;
     
     void Start()
     {
@@ -23,8 +23,9 @@ public class playerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            isGrounded = false;
         }
+        
+        //Animaciones ascenso y caida
         playerMovementAnimator.SetFloat("SpeedY", rb.linearVelocity.y);
     }
     
@@ -34,7 +35,7 @@ public class playerMovement : MonoBehaviour
         
         rb.linearVelocity = new Vector2(hInput * playerSpeed, rb.linearVelocity.y);
 
-        //Cambiar animaciones
+        //Animaciones Idle y Correr
         if (hInput != 0)
         {
             playerMovementAnimator.SetBool("isRunning", true);
