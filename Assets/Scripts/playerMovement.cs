@@ -59,7 +59,7 @@ public class playerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Floor"))
         {
-            isGrounded = true; 
+            isGrounded = true;
         }
     }
     
