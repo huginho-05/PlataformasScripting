@@ -25,6 +25,7 @@ public class playerMovement : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
         }
+        playerMovementAnimator.SetFloat("SpeedY", rb.linearVelocity.y);
     }
     
     private void FixedUpdate()
@@ -60,6 +61,7 @@ public class playerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Floor"))
         {
             isGrounded = true;
+            playerMovementAnimator.SetBool("isGrounded", true);
         }
     }
     
@@ -68,6 +70,7 @@ public class playerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Floor"))
         {
             isGrounded = false;
+            playerMovementAnimator.SetBool("isGrounded", false);
         }
     }
 }
