@@ -7,7 +7,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float damageSword;
     [SerializeField] private Animator playerAttackAnimator;
     private float attackTime;
-    
+    private float attackAnimationTime = 0.0f;
 
     void Start()
     {
@@ -18,8 +18,12 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             playerAttackAnimator.SetBool("isAttacking", true);
+            attackAnimationTime = Time.time;
+            
+            //El jugador no puede atacar mas mientras ataca
+            return;
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Time.time - attackAnimationTime >= 0.26f)
         {
             playerAttackAnimator.SetBool("isAttacking", false); 
         }
