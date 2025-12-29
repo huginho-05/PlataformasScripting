@@ -18,12 +18,12 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             playerAttackAnimator.SetBool("isAttacking", true);
-            attackAnimationTime = Time.time;
+            attackAnimationTime = Time.deltaTime;
             
             //El jugador no puede atacar mas mientras ataca
             return;
         }
-        if (Time.time - attackAnimationTime >= 0.26f)
+        if (Time.time - attackAnimationTime >= 0.9f)
         {
             playerAttackAnimator.SetBool("isAttacking", false); 
         }
