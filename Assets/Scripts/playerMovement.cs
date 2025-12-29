@@ -8,14 +8,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpForce;
     
     [SerializeField] private Animator playerMovementAnimator;
-    private SpriteRenderer spriteRenderer;
     
     public bool isGrounded;
     
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -45,14 +43,14 @@ public class PlayerMovement : MonoBehaviour
             playerMovementAnimator.SetBool("isRunning", false);
         }
         
-        //Cambiar la dirección del sprite
+        //Cambiar la dirección del sprite y que los colliders se muevan con ello, que el sprite original no está centrado
         if (hInput > 0)
         {
-            spriteRenderer.flipX = false;
+            transform.localScale = new Vector2(2f, 2f);
         }
         else if (hInput < 0)
         {
-            spriteRenderer.flipX = true;
+            transform.localScale = new Vector2(-2f, 2f);
         }
 
     }

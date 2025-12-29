@@ -2,50 +2,45 @@ using UnityEngine;
 
 public class RockBehaviour : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    
-    [SerializeField] private Animator rockMovementAnimator;
-    
     [SerializeField] private float rockSpeed;
+    private Vector2 posicionInicial;
+    [SerializeField] private Vector2 posicionFinal;
+    private bool playerInside;
     
-    [SerializeField] private Vector3 direccionIda;
-    
-    [SerializeField] private Vector3 direccionVuelta;
-    
-    void Start()
+    private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        // Posición inicial de la roca
+        posicionInicial = transform.position;
     }
 
     void Update()
     {
-        if (rb.linearVelocity.y == 0)
+        if (playerInside)
         {
-            rockMovementAnimator.SetBool("isMoving", false);
+            transform.position = Vector3.MoveTowards(transform.position, posicionFinal, rockSpeed * Time.deltaTime);
         }
         else
         {
-            rockMovementAnimator.SetBool("isMoving", true);
+            
+            transform.position = Vector3.MoveTowards(transform.position, posicionInicial, rockSpeed * Time.deltaTime);
         }
     }
     
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        // Cuando el jugador entra en el trigger
+        if (other.CompareTag("Player"))
         {
-            transform.Translate(direccionIda * rockSpeed);
+            playerInside = true;  
         }
-        
     }
-    
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        // Cuando el jugador sale del trigger
+        if (other.CompareTag("Player"))
         {
-            transform.Translate(direccionVuelta * rockSpeed);
+            playerInside = false;  
         }
-        
     }
-    
     
 }
