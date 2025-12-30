@@ -1298,6 +1298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   playerMaxLife: 100
   playerCurrentLife: 100
+  playerHealthAnimator: {fileID: 2037155614}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

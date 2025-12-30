@@ -21,7 +21,6 @@ public class RockBehaviour : MonoBehaviour
         }
         else
         {
-            
             transform.position = Vector3.MoveTowards(transform.position, posicionInicial, rockSpeed * Time.deltaTime);
         }
     }
@@ -32,6 +31,10 @@ public class RockBehaviour : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInside = true;  
+        }
+        if (other.CompareTag("Player") && other.gameObject.CompareTag("RockEnemyKills"))
+        {
+            playerInside = false;  
         }
     }
     private void OnTriggerExit2D(Collider2D other)

@@ -5,6 +5,7 @@ public class PlayerHealth : MonoBehaviour
     [Header("Player Health")]
     [SerializeField] private int playerMaxLife;
     [SerializeField] private int playerCurrentLife;
+    [SerializeField] private Animator playerHealthAnimator;
 
     void Start()
     {
@@ -13,16 +14,17 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        if (IsDead())
-        {
-            gameObject.SetActive(false);
-        }
+
     }
 
     public void ReceiveDamage(int damage)
     {
         int damageTaken = Mathf.Max(damage, 1);
         playerCurrentLife -= damageTaken;
+        if (playerCurrentLife <= 0)
+        {
+            playerHealthAnimator.SetTrigger("PlayerDeathTrigger");
+        }
     }
     
 
@@ -31,17 +33,7 @@ public class PlayerHealth : MonoBehaviour
         if (collision.gameObject.CompareTag("RockEnemyKills"))
             ReceiveDamage(100);
     }
-
-    public bool IsDead()
-    {
-        if (playerCurrentLife > 0)
-        {
-            return false;
-        }
-        playerCurrentLife = 0;
-        return true;
-    }
-
+    
     public int GetCurrentLife()
     {
         return playerCurrentLife;
