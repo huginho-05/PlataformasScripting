@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Floor
-  - Enemy
+  - RockEnemy
+  - RockEnemyKills
   layers:
   - Default
   - TransparentFX

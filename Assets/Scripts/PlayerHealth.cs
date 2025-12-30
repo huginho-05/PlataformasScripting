@@ -14,7 +14,9 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {
         if (IsDead())
+        {
             gameObject.SetActive(false);
+        }
     }
 
     public void ReceiveDamage(int damage)
@@ -26,13 +28,16 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-            ReceiveDamage(50);
+        if (collision.gameObject.CompareTag("RockEnemyKills"))
+            ReceiveDamage(100);
     }
 
     public bool IsDead()
     {
-        if (playerCurrentLife > 0) return false;
+        if (playerCurrentLife > 0)
+        {
+            return false;
+        }
         playerCurrentLife = 0;
         return true;
     }
