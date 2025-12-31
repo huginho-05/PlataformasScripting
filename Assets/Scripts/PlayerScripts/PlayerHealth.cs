@@ -11,12 +11,7 @@ public class PlayerHealth : MonoBehaviour
     {
         playerCurrentLife = playerMaxLife;
     }
-
-    void Update()
-    {
-
-    }
-
+    
     public void ReceiveDamage(int damage)
     {
         int damageTaken = Mathf.Max(damage, 1);
@@ -34,6 +29,8 @@ public class PlayerHealth : MonoBehaviour
             ReceiveDamage(100);
         if (collision.gameObject.CompareTag("SawTrap"))
             ReceiveDamage(50);
+        if (collision.gameObject.CompareTag("FireTrap"))
+            ReceiveDamage(20);
     }
     
     public int GetCurrentLife()

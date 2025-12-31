@@ -8,6 +8,7 @@ TagManager:
   - RockEnemy
   - RockEnemyKills
   - SawTrap
+  - FireTrap
   layers:
   - Default
   - TransparentFX
