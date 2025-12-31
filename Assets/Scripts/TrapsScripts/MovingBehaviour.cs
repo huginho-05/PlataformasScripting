@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class SawBehaviour : MonoBehaviour
+public class MovingBehaviour : MonoBehaviour
 {
-    [SerializeField] private float speedSaw;
+    [SerializeField] private float speedObject;
     
     [SerializeField] private Vector3 direccionInicial;
     
-    [SerializeField] private float timerSaw;
+    [SerializeField] private float timerObject;
     
     private Vector3 direccionActual;
 
@@ -20,9 +20,9 @@ public class SawBehaviour : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        transform.Translate(direccionActual * speedSaw * Time.deltaTime);
+        transform.Translate(direccionActual * speedObject * Time.deltaTime);
         
-        if (timer >= timerSaw)
+        if (timer >= timerObject)
         {
             direccionActual *= -1;
             timer = 0;
