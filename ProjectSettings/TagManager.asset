@@ -9,6 +9,7 @@ TagManager:
   - RockEnemyKills
   - SawTrap
   - FireTrap
+  - Trampoline
   layers:
   - Default
   - TransparentFX
