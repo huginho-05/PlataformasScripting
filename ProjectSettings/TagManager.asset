@@ -7,6 +7,7 @@ TagManager:
   - Floor
   - RockEnemy
   - RockEnemyKills
+  - SawTrap
   layers:
   - Default
   - TransparentFX

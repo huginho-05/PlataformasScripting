@@ -32,6 +32,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("RockEnemyKills"))
             ReceiveDamage(100);
+        if (collision.gameObject.CompareTag("SawTrap"))
+            ReceiveDamage(50);
     }
     
     public int GetCurrentLife()
