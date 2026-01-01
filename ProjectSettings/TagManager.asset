@@ -10,6 +10,7 @@ TagManager:
   - SawTrap
   - FireTrap
   - Trampoline
+  - TurtleSensorTrigger
   layers:
   - Default
   - TransparentFX
