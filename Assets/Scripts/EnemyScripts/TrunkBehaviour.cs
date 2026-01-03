@@ -2,16 +2,15 @@ using UnityEngine;
 
 public class TrunkBehaviour : MonoBehaviour
 {
-    [SerializeField] private Animator trunkAnimator;
     [SerializeField] private TrunkBullet bulletPrefab;
     [SerializeField] private Transform bulletSpawn;
-    [SerializeField] private float shootingRate;
+    private float shootingRate = 1f;
     [SerializeField] private Vector2 directionBullet;
     private float timer;
     
     void Start()
     {
-        timer += Time.deltaTime;
+        timer = shootingRate;
     }
 
     void Update()
@@ -19,12 +18,17 @@ public class TrunkBehaviour : MonoBehaviour
 
         if (timer >= shootingRate)
         {
-            TrunkBullet bullet = Instantiate(bulletPrefab, bulletSpawn.position, transform.rotation);
-            bullet.LaunchBullet(new Vector2(bulletSpawn.position.x, bulletSpawn.position.y) * directionBullet);
-            timer = 0;
+            Shoot();
         }
         
         timer += Time.deltaTime;
         
+    }
+
+    private void Shoot()
+    {
+        TrunkBullet bullet = Instantiate(bulletPrefab, bulletSpawn.position, transform.rotation);
+        bullet.LaunchBullet(new Vector2(bulletSpawn.position.x, bulletSpawn.position.y) * directionBullet);
+        timer = 0;
     }
 }
