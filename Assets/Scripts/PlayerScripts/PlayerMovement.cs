@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
     
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Floor"))
+        if (other.gameObject.CompareTag("Floor") || other.gameObject.CompareTag("Enemy"))
         {
             isGrounded = true;
             playerMovementAnimator.SetBool("isGrounded", true);

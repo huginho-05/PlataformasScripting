@@ -13,8 +13,8 @@ TagManager:
   - TurtleSensorTrigger
   - TurtleEnemy
   - TrunkBullet
-  - TrunkEnemy
   - RinoEnemy
+  - Enemy
   layers:
   - Default
   - TransparentFX
