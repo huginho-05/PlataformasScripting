@@ -11,6 +11,8 @@ TagManager:
   - FireTrap
   - Trampoline
   - TurtleSensorTrigger
+  - TurtleEnemy
+  - TrunkBullet
   layers:
   - Default
   - TransparentFX
