@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -22,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
             GetComponent<PlayerMovement>().enabled = false;
         }
     }
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Traps
