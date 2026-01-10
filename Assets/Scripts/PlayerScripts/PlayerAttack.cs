@@ -35,7 +35,7 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
-        if (Time.time - attackAnimationTime >= 0.91f)
+        if (Time.time - attackAnimationTime >= 0.75f)
         {
             playerAttackAnimator.SetBool("isAttacking", false);
         }
