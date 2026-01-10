@@ -575,13 +575,14 @@ GameObject:
   - component: {fileID: 314743955}
   - component: {fileID: 314743957}
   - component: {fileID: 314743956}
+  - component: {fileID: 314743958}
   m_Layer: 6
   m_Name: Rino
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &314743953
 Transform:
   m_ObjectHideFlags: 0
@@ -739,6 +740,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &314743958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314743952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e6bcb01ea1b014c96648ef9415424a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  health: 5
 --- !u!1 &347054389
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,6 +1098,7 @@ Transform:
   - {fileID: 2067645393}
   - {fileID: 1828721877}
   - {fileID: 314743953}
+  - {fileID: 698585387}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
@@ -1479,12 +1494,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698585382}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.558, y: -3.686, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 474026619}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &729648430
 GameObject:
@@ -1886,7 +1901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8e6bcb01ea1b014c96648ef9415424a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
-  health: 100
+  health: 1
 --- !u!1 &1477693389
 GameObject:
   m_ObjectHideFlags: 0
@@ -2361,13 +2376,14 @@ GameObject:
   - component: {fileID: 1828721881}
   - component: {fileID: 1828721880}
   - component: {fileID: 1828721882}
+  - component: {fileID: 1828721883}
   m_Layer: 6
   m_Name: Trunk
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1828721877
 Transform:
   m_ObjectHideFlags: 0
@@ -2552,6 +2568,19 @@ MonoBehaviour:
   bulletPrefab: {fileID: 863898234430071678, guid: 5b2d4882adff1c04d879fc86b5baddc7, type: 3}
   bulletSpawn: {fileID: 947905646}
   directionBullet: {x: -1, y: 0}
+--- !u!114 &1828721883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1828721876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e6bcb01ea1b014c96648ef9415424a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  health: 3
 --- !u!1 &1947535676
 GameObject:
   m_ObjectHideFlags: 0
@@ -2935,7 +2964,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   attackRange: 0.84
-  damage: 10
+  damage: 1
   playerAttackAnimator: {fileID: 2037155614}
 --- !u!114 &2037155616
 MonoBehaviour:
@@ -3005,7 +3034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2067645393
 Transform:
   m_ObjectHideFlags: 0
@@ -3173,4 +3202,3 @@ SceneRoots:
   - {fileID: 2061140206}
   - {fileID: 358329631}
   - {fileID: 246422468}
-  - {fileID: 698585387}
